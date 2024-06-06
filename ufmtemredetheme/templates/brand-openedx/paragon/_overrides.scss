@@ -1,0 +1,43 @@
+// Use this file to define style overrides for @edx/paragon
+// This file is included after all Paragon styles, but should generally avoid using private mixins in Paragon.
+
+//Learning//
+
+//----------------------------- Course Home ----------------------------------//
+body{
+    background-color: {{ UFMT_EM_REDE_BODY }};
+}
+
+.bg-primary {
+    background: {{ UFMT_EM_REDE_BG_PRIMARY }};
+}
+
+
+header.learning-header {
+    background: transparent linear-gradient(180deg, #3A1D98 0%, #1D0F4C 100%) 0% 0% no-repeat padding-box;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+
+    
+    a.text-gray-700{
+        color: #f7f7f7!important;
+    }
+
+    .btn-outline-primary:hover{
+        background-color: #3A0C88!important;
+    }
+    .dropdown{
+        button{
+            color: #ffffff;
+        }
+    }
+
+
+    .course-title-lockup{
+        span{
+            color: #f5f5f5;
+        }
+
+    }
+}
+
+{{ UFMT_EM_REDE_OVERRIDES }}

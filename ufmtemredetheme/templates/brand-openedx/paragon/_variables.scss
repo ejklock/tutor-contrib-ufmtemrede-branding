@@ -1,0 +1,30 @@
+// Use this file to set SASS variables for @edx/paragon
+// See _variables.scss in https://github.com/edx/paragon/blob/master/scss/core/ for reference
+
+$primary : {{ UFMT_EM_REDE_PRIMARY }};
+$secondary: {{ UFMT_EM_REDE_SECONDARY }};
+
+$brand: {{ UFMT_EM_REDE_BRAND }};
+$success: {{ UFMT_EM_REDE_SUCCESS }};
+$info: {{ UFMT_EM_REDE_INFO }};
+$danger: {{ UFMT_EM_REDE_DANGER }};
+$warning: {{ UFMT_EM_REDE_WARNING }};
+$light: {{ UFMT_EM_REDE_LIGHT }};
+$dark: {{ UFMT_EM_REDE_DARK }};
+$accent-a: {{ UFMT_EM_REDE_ACCENT_A }};
+$accent-b: {{ UFMT_EM_REDE_ACCENT_B }};
+
+
+
+
+{% if UFMT_EM_REDE_FONT_FAMILY != "" %}
+$font-family-sans-serif: {{ UFMT_EM_REDE_FONT_FAMILY }} !default;
+$font-family-title: {{ UFMT_EM_REDE_FONT_FAMILY }};
+
+$monospace: {{ UFMT_EM_REDE_FONT_FAMILY }} !default;
+$serif: {{ UFMT_EM_REDE_FONT_FAMILY }} !default;
+
+// newer variables/standards
+$f-serif: {{ UFMT_EM_REDE_FONT_FAMILY }} !default;
+$f-monospace: {{ UFMT_EM_REDE_FONT_FAMILY }} !default;
+{% endif %}
