@@ -2,6 +2,7 @@
 // See _variables.scss in https://github.com/edx/paragon/blob/master/scss/core/ for reference
 
 $primary : {{ UFMT_EM_REDE_PRIMARY }};
+$primary-light: {{ UFMT_EM_REDE_PRIMARY_LIGHT }};
 $secondary: {{ UFMT_EM_REDE_SECONDARY }};
 
 $brand: {{ UFMT_EM_REDE_BRAND }};
@@ -10,7 +11,8 @@ $info: {{ UFMT_EM_REDE_INFO }};
 $danger: {{ UFMT_EM_REDE_DANGER }};
 $warning: {{ UFMT_EM_REDE_WARNING }};
 $light: {{ UFMT_EM_REDE_LIGHT }};
-$dark: {{ UFMT_EM_REDE_DARK }};
+$light-drak: {{ UFMT_EM_REDE_LIGHT_DRAK }};
+$drak: {{ UFMT_EM_REDE_DRAK }};
 $accent-a: {{ UFMT_EM_REDE_ACCENT_A }};
 $accent-b: {{ UFMT_EM_REDE_ACCENT_B }};
 
@@ -28,3 +30,5 @@ $serif: {{ UFMT_EM_REDE_FONT_FAMILY }} !default;
 $f-serif: {{ UFMT_EM_REDE_FONT_FAMILY }} !default;
 $f-monospace: {{ UFMT_EM_REDE_FONT_FAMILY }} !default;
 {% endif %}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');

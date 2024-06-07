@@ -36,7 +36,10 @@ config = {
         "BG_PRIMARY": "#ffffff",
         "BODY": "#FFFFFF",
         "PRIMARY": "#311B7B",
+        "PRIMARY_LIGHT": "#F2F7F8",
         "SECONDARY":"#454545",
+        "HEADER_BACKGROUND":"transparent linear-gradient(180deg, #3A1D98 0%, #1D0F4C 100%) 0% 0% no-repeat padding-box",
+        "HEADER_BOX_SHADOW":" 0 6px 10px 0 rgba(0, 0, 0, 0.1)",
         "FONT_FAMILY": "",
         "BRAND": "#311B7B",
         "SUCCESS": "#178253",
@@ -44,6 +47,8 @@ config = {
         "DANGER": "#C32D3A",
         "WARNING": "#FFD900",
         "LIGHT": "#E1DDDB",
+        "DRAK": "#111827",
+        "LIGHT_DRAK": "#374151",
         "DARK": "#273F2F",
         "ACCENT_A": "#00BBF9",
         "ACCENT_B": "#FFEE88",
@@ -52,7 +57,7 @@ config = {
         "EXTRAS": "",
         # OVERRIDES: additional CSS for mfe branding
         "OVERRIDES": "",
-        "FONTS": "",
+        "FONTS": "" ,
 
         # static page templates
         "STATIC_TEMPLATE_404": None,
@@ -92,6 +97,43 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
     list(config["overrides"].items())
 )
 
+hooks.Filters.ENV_PATCHES.add_items(
+    [
+        (
+            "mfe-dockerfile-post-npm-install-learning",
+            """
+
+RUN npm install '@edx/frontend-component-header@npm:@edly-io/indigo-frontend-component-header@^1.0.0'
+RUN npm install '@edx/frontend-component-footer@npm:@edly-io/indigo-frontend-component-footer@^1.0.0'
+""",
+        ),
+        (
+            "mfe-dockerfile-post-npm-install-authn",
+            """
+
+""",
+        ),
+        # Tutor-Indigo v2.1 targets the styling updations in discussions and learner-dashboard MFE
+        # brand-openedx is related to styling updates while others are for header and footer updates
+        (
+            "mfe-dockerfile-post-npm-install-discussions",
+            """
+RUN npm install '@edx/brand@npm:@edly-io/indigo-brand-openedx@^1.0.0'
+RUN npm install '@edx/frontend-component-header@npm:@edly-io/indigo-frontend-component-header@^1.0.0'
+RUN npm install '@edx/frontend-component-footer@npm:@edly-io/indigo-frontend-component-footer@^1.0.0'
+""",
+        ),
+        (
+            "mfe-dockerfile-post-npm-install-learner-dashboard",
+            """
+
+RUN npm install '@edx/frontend-component-footer@npm:@edly-io/indigo-frontend-component-footer@^1.0.0'
+""",
+        ),
+    ]
+)
+
+
 ################# Initialization tasks
 # To run the script from templates/panorama/tasks/myservice/init, add:
 with open(
@@ -100,11 +142,18 @@ with open(
         ),
         encoding="utf8",
 ) as f:
-    hooks.Filters.CLI_DO_INIT_TASKS.add_item(
-        (
+    hooks.Filters.CLI_DO_INIT_TASKS.add_items([
+         (
             "lms",
             f.read()
-        )
+        ),
+         (
+            "cms",
+            f.read()
+        ),
+         
+    ]
+        
     )
 
 ########################################

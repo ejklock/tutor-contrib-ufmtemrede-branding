@@ -6,6 +6,7 @@ $homepage-bg-image: url('#{$static-path}/images/{{ UFMT_EM_REDE_HOMEPAGE_BG_IMAG
 {% endif %}
 
 $primary : {{ UFMT_EM_REDE_PRIMARY }};
+$primary-light : {{ UFMT_EM_REDE_PRIMARY_LIGHT }};
 $secondary: {{ UFMT_EM_REDE_SECONDARY }};
 
 $brand: {{ UFMT_EM_REDE_BRAND }};
@@ -15,28 +16,20 @@ $danger: {{ UFMT_EM_REDE_DANGER }};
 $warning: {{ UFMT_EM_REDE_WARNING }};
 $light: {{ UFMT_EM_REDE_LIGHT }};
 $dark: {{ UFMT_EM_REDE_DARK }};
+$drak: {{ UFMT_EM_REDE_DRAK }};
+$light-drak: {{ UFMT_EM_REDE_LIGHT_DRAK }};
 $accent-a: {{ UFMT_EM_REDE_ACCENT_A }};
 $accent-b: {{ UFMT_EM_REDE_ACCENT_B }};
 
-{% if UFMT_EM_REDE_FONT_FAMILY != "" %}
-$font-family-sans-serif: {{ UFMT_EM_REDE_FONT_FAMILY }} !default;
-$font-family-title: {{ UFMT_EM_REDE_FONT_FAMILY }};
-
-$monospace: {{ UFMT_EM_REDE_FONT_FAMILY }} !default;
-$serif: {{ UFMT_EM_REDE_FONT_FAMILY }} !default;
-
-// newer variables/standards
-$f-serif: {{ UFMT_EM_REDE_FONT_FAMILY }} !default;
-$f-monospace: {{ UFMT_EM_REDE_FONT_FAMILY }} !default;
-{% endif %}
-
-
-.global-header {
-    background: transparent linear-gradient(180deg, #3A1D98 0%, #1D0F4C 100%) 0% 0% no-repeat padding-box;
-    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
-
-}
-
+// Theme fonts
+$font-family-title: 'Inter', sans-serif;;
+$serif: Crimson;
+$f-sans-serif: Crimson, 'Open Sans','Helvetica Neue', Helvetica, Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 // Initialize the Open edX Bootstrap theme
 @import 'edx-bootstrap/sass/open-edx/theme';
+
+$drak: {{ UFMT_EM_REDE_DRAK }};
+$light-drak: {{ UFMT_EM_REDE_LIGHT_DRAK }};
+
 

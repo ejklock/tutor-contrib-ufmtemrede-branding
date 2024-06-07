@@ -4,8 +4,11 @@
     background-color: $secondary;
 }
 
-.global-header {
-    background: transparent linear-gradient(180deg, #3A1D98 0%, #1D0F4C 100%) 0% 0% no-repeat padding-box;
-    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+.wrapper-header.wrapper {
+    background: {{ UFMT_EM_REDE_HEADER_BACKGROUND }};
+    box-shadow: {{ UFMT_EM_REDE_HEADER_BOX_SHADOW }};
+}
 
+.wrapper-header .wrapper-l, .wrapper-header .wrapper-r {
+   background: unset;
 }
