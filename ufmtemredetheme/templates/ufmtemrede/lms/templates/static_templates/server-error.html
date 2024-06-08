@@ -1,14 +1,11 @@
 <%page expression_filter="h"/>
 <%namespace name='static' file='../static_content.html'/>
 <%!
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 from openedx.core.djangolib.markup import HTML, Text
 %>
 <%inherit file="../main.html" />
 
-{% if UFMT_EM_REDE_STATIC_TEMPLATE_SERVER_ERROR %}
-{{ UFMT_EM_REDE_STATIC_TEMPLATE_SERVER_ERROR }}
-{% else %}
 <main id="main" aria-label="Content" tabindex="-1">
     <section class="outside-app">
         <h1>
@@ -32,5 +29,3 @@ from openedx.core.djangolib.markup import HTML, Text
             </%block>
         </p>
     </section>
-</main>
-{% endif %}

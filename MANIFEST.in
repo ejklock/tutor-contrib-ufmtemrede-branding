@@ -1,2 +1,3 @@
 recursive-include ufmtemredetheme/patches *
 recursive-include ufmtemredetheme/templates *
+recursive-include ufmtemredetheme/translations *
