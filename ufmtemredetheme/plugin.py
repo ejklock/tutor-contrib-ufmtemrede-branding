@@ -1,12 +1,14 @@
+from __future__ import annotations
 
-import os
+import os.path
 from glob import glob
 
+import click
 import pkg_resources
-from tutor import config as tutor_config
-from tutor import env, fmt, hooks
+from tutor import env, hooks
 
 from .__about__ import __version__
+from .jinja_custom_environment import JinjaCustomEnvironment
 
 ########################################
 # CONFIGURATION
@@ -80,6 +82,7 @@ config = {
     "overrides": {},
 }
 
+env.JinjaEnvironment= JinjaCustomEnvironment
 hooks.Filters.CONFIG_DEFAULTS.add_items(
     [(f"UFMT_EM_REDE_{key}", value) for key, value in config["defaults"].items()]
 )
@@ -143,9 +146,6 @@ RUN npm install '@edx/frontend-component-footer@npm:@edly-io/indigo-frontend-com
         ),
     ]
 )
-
-
-
 ################# Initialization tasks
 # To run the script from templates/panorama/tasks/myservice/init, add:
 with open(
@@ -182,6 +182,8 @@ hooks.Filters.ENV_TEMPLATE_ROOTS.add_items(
 )
 
 
+
+
 hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
     # For each pair (source_path, destination_path):
     # templates at ``source_path`` (relative to your ENV_TEMPLATE_ROOTS) will be
@@ -189,8 +191,16 @@ hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
     [
         ("ufmtemrede", "build/openedx/themes"),
         ("brand-openedx", "plugins/mfe/build/mfe"),
+        ("openedx/locale", "build"),
+        ("mfe/i18n", "plugins/mfe/build")
        
     ],
+)
+
+hooks.Filters.ENV_PATTERNS_IGNORE.add_items(
+    # Ignore these patterns when rendering templates.
+    [
+    ]
 )
 
 
