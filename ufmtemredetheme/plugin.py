@@ -3,12 +3,13 @@ from __future__ import annotations
 import os.path
 from glob import glob
 
-import click
 import pkg_resources
 from tutor import env, hooks
 
 from .__about__ import __version__
-from .jinja_custom_environment import JinjaCustomEnvironment
+
+env.BIN_FILE_EXTENSIONS.append('.json')
+env.BIN_FILE_EXTENSIONS.append('.po')
 
 ########################################
 # CONFIGURATION
@@ -82,7 +83,8 @@ config = {
     "overrides": {},
 }
 
-env.JinjaEnvironment= JinjaCustomEnvironment
+
+
 hooks.Filters.CONFIG_DEFAULTS.add_items(
     [(f"UFMT_EM_REDE_{key}", value) for key, value in config["defaults"].items()]
 )
@@ -95,13 +97,14 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
     list(config["overrides"].items())
 )
 
+
 hooks.Filters.ENV_PATCHES.add_items(
     [
         (
             "mfe-dockerfile-post-npm-install-learning",
             """
 RUN npm install '@edx/brand@git+https://github.com/ejklock/brand-openedx-indigo.git#ufmtemrede/quince'
-RUN npm install '@edx/frontend-component-header@npm:@edly-io/indigo-frontend-component-header@^1.0.0'
+RUN npm install '@edx/frontend-component-header@npm:@klocktecnologia/indigo-frontend-component-header@1.1.3'
 RUN npm install '@edx/frontend-component-footer@npm:@edly-io/indigo-frontend-component-footer@^1.0.0'
 """,
         ),
@@ -200,6 +203,7 @@ hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
 hooks.Filters.ENV_PATTERNS_IGNORE.add_items(
     # Ignore these patterns when rendering templates.
     [
+      
     ]
 )
 
