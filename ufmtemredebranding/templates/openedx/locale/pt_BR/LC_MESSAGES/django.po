@@ -22508,6 +22508,10 @@ msgstr "Dedicação estimada"
 msgid "Prerequisites"
 msgstr "Pré-requisitos "
 
+#: lms/templates/courseware/course_about.html:220
+msgid "prerequisites"
+msgstr "Pré-requisitos "
+
 #: lms/templates/courseware/course_about.html:224
 #: lms/templates/dashboard/_dashboard_course_listing.html:425
 msgid ""
