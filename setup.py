@@ -14,7 +14,7 @@ def load_readme():
 def load_about():
     about = {}
     with io.open(
-        os.path.join(HERE, "ufmtemredetheme", "__about__.py"),
+        os.path.join(HERE, "ufmtemredebranding", "__about__.py"),
         "rt",
         encoding="utf-8",
     ) as f:
@@ -50,7 +50,7 @@ setup(
     },
     entry_points={
         "tutor.plugin.v1": [
-            "ufmtemrede = ufmtemredetheme.plugin"
+            "ufmtemrede = ufmtemredebranding.plugin"
         ]
     },
     classifiers=[

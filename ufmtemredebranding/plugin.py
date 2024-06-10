@@ -153,7 +153,7 @@ RUN npm install '@edx/frontend-component-footer@npm:@edly-io/indigo-frontend-com
 # To run the script from templates/panorama/tasks/myservice/init, add:
 with open(
         pkg_resources.resource_filename(
-            "ufmtemredetheme", os.path.join("templates", "tasks", "lms", "init")
+            "ufmtemredebranding", os.path.join("templates", "tasks", "lms", "init")
         ),
         encoding="utf8",
 ) as f:
@@ -180,7 +180,7 @@ with open(
 hooks.Filters.ENV_TEMPLATE_ROOTS.add_items(
     # Root paths for template files, relative to the project root.
     [
-        pkg_resources.resource_filename("ufmtemredetheme", "templates"),
+        pkg_resources.resource_filename("ufmtemredebranding", "templates"),
     ]
 )
 
@@ -225,7 +225,7 @@ hooks.Filters.ENV_PATTERNS_INCLUDE.add_item(r"ufmtemrede/cms/static/sass/partial
 # apply a patch based on the file's name and contents.
 for path in glob(
         os.path.join(
-            pkg_resources.resource_filename("ufmtemredetheme", "patches"),
+            pkg_resources.resource_filename("ufmtemredebranding", "patches"),
             "*",
         )
 ):
