@@ -23,12 +23,14 @@ config = {
         # Footer links are dictionaries with a "title" and "url"
         # To remove all links, run:
         # tutor config save --set UFMT_EM_REDE_FOOTER_NAV_LINKS=[] --set UFMT_EM_REDE_FOOTER_LEGAL_LINKS=[]
+        # {"title": "About", "url": "/about"},
+        # {"title": "Contact", "url": "/contact"},
         "FOOTER_NAV_LINKS": [
-            # {"title": "About", "url": "/about"},
-            # {"title": "Contact", "url": "/contact"},
+         
         ],
+         # {"title": "Terms of service", "url": "/tos"},
         "FOOTER_LEGAL_LINKS": [
-            # {"title": "Terms of service", "url": "/tos"},
+           
         ],
         "BACKGROUND": "#ffffff",
         "BG_PRIMARY": "#ffffff",
