@@ -1,0 +1,13 @@
+echo "Start creating external user for database"
+mysql_connection_max_attempts=10
+mysql_connection_attempt=0
+
+echo "Adding external user to database"
+
+mysql -u {{ MYSQL_ROOT_USERNAME }} --password="{{ MYSQL_ROOT_PASSWORD }}" --host "{{ MYSQL_HOST }}" --port {{ MYSQL_PORT }} -e "
+CREATE USER IF NOT EXISTS '{{ UFMT_EM_REDE_EXTERNAL_MYSQL_USER }}'@'%' IDENTIFIED BY '{{ UFMT_EM_REDE_EXTERNAL_MYSQL_PASSWORD }}';
+GRANT ALL ON {{ OPENEDX_MYSQL_DATABASE }}.* TO '{{ UFMT_EM_REDE_EXTERNAL_MYSQL_USER }}'@'%';
+FLUSH PRIVILEGES;
+"
+
+echo "External user created with credentials: {{ UFMT_EM_REDE_EXTERNAL_MYSQL_USER }} / {{ UFMT_EM_REDE_EXTERNAL_MYSQL_PASSWORD }}" 

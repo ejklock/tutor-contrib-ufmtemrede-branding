@@ -1,0 +1,5 @@
+version: "3"
+services:
+  mysql:
+    ports:
+      - {{UFMT_EM_REDE_EXTERNAL_MYSQL_PORT}}:3306

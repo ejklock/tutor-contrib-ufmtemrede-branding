@@ -80,10 +80,14 @@ config = {
         "STATIC_TEMPLATE_SERVER_OVERLOADED": None,
         "STATIC_TEMPLATE_SITEMAP": None,
         "STATIC_TEMPLATE_TOS": None,
+        "EXTERNAL_MYSQL_PORT":"33306",
+        "EXTERNAL_MYSQL_USER":"external_app",
+        "EXTERNAL_MYSQL_PASSWORD":"qZ18z3",
     },
     "unique": {},
     "overrides": {},
 }
+
 
 
 
@@ -153,25 +157,23 @@ RUN npm install '@edx/frontend-component-footer@npm:@edly-io/indigo-frontend-com
 )
 ################# Initialization tasks
 # To run the script from templates/panorama/tasks/myservice/init, add:
-with open(
+def add_init_tasks(location):
+    with open(
         pkg_resources.resource_filename(
-            "ufmtemredebranding", os.path.join("templates", "tasks", "lms", "init")
+            "ufmtemredebranding", os.path.join("templates", "tasks", location, "init")
         ),
         encoding="utf8",
-) as f:
-    hooks.Filters.CLI_DO_INIT_TASKS.add_items([
-         (
-            "lms",
-            f.read()
-        ),
-         (
-            "cms",
-            f.read()
-        ),
-         
-    ]
-        
-    )
+    ) as f:
+        hooks.Filters.CLI_DO_INIT_TASKS.add_items([
+            (
+                location,
+                f.read()
+            ),
+        ])
+
+add_init_tasks("lms")
+add_init_tasks("mysql")
+
 
 ########################################
 # TEMPLATE RENDERING
@@ -196,6 +198,7 @@ hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
     [
         ("ufmtemrede", "build/openedx/themes"),
         ("brand-openedx", "plugins/mfe/build/mfe"),
+        ("local", "env/local"),
         ("openedx/locale", "build"),
         ("mfe/i18n", "plugins/mfe/build")
        
