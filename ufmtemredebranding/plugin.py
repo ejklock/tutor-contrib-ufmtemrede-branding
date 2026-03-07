@@ -3,7 +3,6 @@ from __future__ import annotations
 import os.path
 from glob import glob
 
-import pkg_resources
 from tutor import env, hooks
 
 from .__about__ import __version__
@@ -159,9 +158,7 @@ RUN npm install '@edx/frontend-component-footer@npm:@edly-io/indigo-frontend-com
 # To run the script from templates/panorama/tasks/myservice/init, add:
 def add_init_tasks(location):
     with open(
-        pkg_resources.resource_filename(
-            "ufmtemredebranding", os.path.join("templates", "tasks", location, "init")
-        ),
+        os.path.join(os.path.dirname(__file__), "templates", "tasks", location, "init"),
         encoding="utf8",
     ) as f:
         hooks.Filters.CLI_DO_INIT_TASKS.add_items([
@@ -184,7 +181,7 @@ add_init_tasks("mysql")
 hooks.Filters.ENV_TEMPLATE_ROOTS.add_items(
     # Root paths for template files, relative to the project root.
     [
-        pkg_resources.resource_filename("ufmtemredebranding", "templates"),
+        os.path.join(os.path.dirname(__file__), "templates"),
     ]
 )
 
@@ -230,8 +227,7 @@ hooks.Filters.ENV_PATTERNS_INCLUDE.add_item(r"ufmtemrede/cms/static/sass/partial
 # apply a patch based on the file's name and contents.
 for path in glob(
         os.path.join(
-            pkg_resources.resource_filename("ufmtemredebranding", "patches"),
-            "*",
+            os.path.dirname(__file__), "patches", "*",
         )
 ):
     with open(path, encoding="utf-8") as patch_file:
