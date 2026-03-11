@@ -108,13 +108,13 @@ hooks.Filters.ENV_PATCHES.add_items(
         (
             "mfe-dockerfile-post-npm-install-learning",
             """
-RUN npm install '@edx/brand@git+https://github.com/ejklock/brand-openedx-indigo.git#ufmtemrede/quince'
+RUN npm install '@edx/brand@git+https://github.com/ejklock/brand-openedx-indigo.git#inovatec/ulmo'
 """,
         ),
         (
             "mfe-dockerfile-post-npm-install-authn",
             """
-RUN npm install '@edx/brand@git+https://github.com/ejklock/brand-openedx-indigo.git#ufmtemrede/quince'
+RUN npm install '@edx/brand@git+https://github.com/ejklock/brand-openedx-indigo.git#inovatec/ulmo'
 """,
         ),
         # Tutor-Indigo v2.1 targets the styling updations in discussions and learner-dashboard MFE
@@ -122,25 +122,25 @@ RUN npm install '@edx/brand@git+https://github.com/ejklock/brand-openedx-indigo.
         (
             "mfe-dockerfile-post-npm-install-discussions",
             """
-RUN npm install '@edx/brand@git+https://github.com/ejklock/brand-openedx-indigo.git#ufmtemrede/quince'
+RUN npm install '@edx/brand@git+https://github.com/ejklock/brand-openedx-indigo.git#inovatec/ulmo'
 """,
         ),
         (
             "mfe-dockerfile-post-npm-install-learner-dashboard",
             """
-RUN npm install '@edx/brand@git+https://github.com/ejklock/brand-openedx-indigo.git#ufmtemrede/quince'
+RUN npm install '@edx/brand@git+https://github.com/ejklock/brand-openedx-indigo.git#inovatec/ulmo'
 """,
         ),
         (
             "mfe-dockerfile-post-npm-install-profile",
             """
-RUN npm install '@edx/brand@git+https://github.com/ejklock/brand-openedx-indigo.git#ufmtemrede/quince'
+RUN npm install '@edx/brand@git+https://github.com/ejklock/brand-openedx-indigo.git#inovatec/ulmo'
 """,
         ),
         (
             "mfe-dockerfile-post-npm-install-account",
             """
-RUN npm install '@edx/brand@git+https://github.com/ejklock/brand-openedx-indigo.git#ufmtemrede/quince'
+RUN npm install '@edx/brand@git+https://github.com/ejklock/brand-openedx-indigo.git#inovatec/ulmo'
 """,
         ),
     ]
