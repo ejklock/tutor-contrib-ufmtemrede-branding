@@ -10,7 +10,9 @@
     }
     header.course-profile {
         overflow: visible;
+        background: none;
         .intro-inner-wrapper {
+            background: none;
             padding: 0 0 60px;
             @include media-breakpoint-up(md) {
                 padding: 0 0 20px;
@@ -42,7 +44,7 @@
             }
             .org {
                 display: block;
-                color: #6B7280;
+                color: #515661;
                 font-size: 16px;
                 line-height: 22px;
             }
@@ -74,21 +76,16 @@
                 border: none;
                 &:after {
                     position: absolute;
-                    left: -35px;
-                    top: -25px;
-                    width: 100%;
-                    height: 100%;
+                    left: 1px;
+                    top: 1px;
+                    width: calc(100% - 2px);
+                    height: calc(100% - 2px);
                     content: "";
                     border-radius: 8px;
-                    background: $primary-light;
-                    display: none;
-                    @include media-breakpoint-up(md) {
-                        display: block;
-                    }
-                    @include media-breakpoint-up(lg) {
-                        left: -57px;
-                        top: -44px;
-                    }
+                    border: 1px solid $primary-light;
+                }
+                .play-intro{
+                    z-index: 10;
                 }
             }
         }
@@ -97,27 +94,37 @@
         @include media-breakpoint-up(md) {
             margin: -50px 0 0;
         }
-        a {
-            text-decoration: none !important;
-            span {
-                display: inline-block;
-                vertical-align: top;
-                padding: 7px 14px;
-                color: #374151;
-                border-radius: 6px;
-                background: #fff;
-                font-size: 16px;
-                line-height: 24px;
-                font-weight: 500;
-                text-decoration: none !important;
-                border: 1px solid #D1D5DB;
-                margin-right: 20px;
-                @include media-breakpoint-up(md) {
-                    padding: 12px 24px;
-                }
+        span {
+          &.register {
+            &.disabled {
+              display: inline-block;
+              vertical-align: top;
+              padding: 7px 14px;
+              color: #374151;
+              border-radius: 6px;
+              background: #fff;
+              font-size: 16px;
+              line-height: 24px;
+              font-weight: 500;
+              text-decoration: none !important;
+              border: 1px solid #D1D5DB;
+              margin-right: 20px;
+              @include media-breakpoint-up(md) {
+                  padding: 12px 24px;
+              }
+
+              &:hover {
+                opacity: 1;
+              }
             }
+          }
         }
-        a.register, a strong {
+
+        a {
+            display: inline-block;
+            text-decoration: none !important;
+        }
+        a.register, a strong, >span.register, a.add-to-cart {
             display: inline-block;
             vertical-align: top;
             padding: 8px 15px;
@@ -135,6 +142,17 @@
                 text-decoration: none;
                 opacity: .8;
             }
+        }
+        span.closed {
+            background: $primary-light;
+            border-radius: 6px;
+            color: #9CA3AF;
+            font-size: 16px;
+            line-height: 24px;
+            padding: 16px;
+            font-weight: 500;
+            display: inline-block;
+            vertical-align: top;
         }
     }
     .about-content {
@@ -164,7 +182,7 @@
             }
             .about, .prerequisites, .course-staff, .faq {
                 font: 16px/20px $font-family-title;
-                color: #6B7280;
+                color: #515661;
                 border-radius: 8px;
                 border: 1px solid $primary-light;
                 border-left: 14px solid $primary-light;
@@ -261,6 +279,8 @@
         @include media-breakpoint-up(md) {
             width: 32%;
             margin: 0;
+            max-width: 400px;
+            float: right;
         }
         h2 {
             color:#111827;
@@ -335,7 +355,7 @@
                     float: none;
                     font-size: 12px;
                     line-height: 24px;
-                    color: #6B7280;
+                    color: #515661;
                     display: block;
                     font-weight: normal;
                     font-family: $font-family-title;
@@ -345,6 +365,98 @@
                     }
                     @include media-breakpoint-up(lg) {
                         float: right;
+                    }
+                }
+            }
+        }
+    }
+}
+body.indigo-dark-theme {
+    .course-info.about {
+        .intro-inner-wrapper .profile-top {
+            .info-profile {
+                h1 {
+                    color: $text-color-d;
+                }
+                .org {
+                    color: $text-color-primary;
+                }
+            }
+            .media {
+                .hero {
+                    &:after {
+                        border-color: $border-color-d;
+                    }
+                }
+            }
+        }
+        .main-cta {
+            a {
+                span {
+                    color: $text-color-d;
+                    background: none;
+                    border: 1px solid $text-color-d;
+                }
+            }
+            a.register, a strong, >span.register, a.add-to-cart {
+                color: $btn-color-d;
+                background: $primary-d;
+            }
+            span.closed {
+                background: $primary-light-d;
+            }
+        }
+        .about-content {
+            .details {
+                .about, .prerequisites, .course-staff, .faq {
+                    color: $text-color-d;
+                    border: 1px solid $primary-light-d;
+                    border-left: 14px solid $primary-light-d;
+                    h2 {
+                        color: $text-color-d;
+                    }
+                    h3 {
+                        color: $text-color-d;
+                    }
+                    .teacher {
+                        &.update {
+                            @include media-breakpoint-up(md) {
+                                &:after {
+                                    background: $primary-light-d;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .course-sidebar {
+            background: $primary-light-d;
+            h2 {
+                color: $text-color-d;
+            }
+            header {
+                .social-sharing {
+                    .sharing-message {
+                        background: $primary-light-d;
+                        border-top: 4px solid $primary-d;
+                        color: $text-color-d;
+                    }
+                }
+            }
+            .important-dates {
+                li {
+                    svg, .fa {
+                        color: $text-color-primary;
+                        path {
+                            fill: $text-color-primary;
+                        }
+                    }
+                    p {
+                        color: $text-color-primary;
+                    }
+                    .important-dates-item-text {
+                        color: $text-color-primary;
                     }
                 }
             }

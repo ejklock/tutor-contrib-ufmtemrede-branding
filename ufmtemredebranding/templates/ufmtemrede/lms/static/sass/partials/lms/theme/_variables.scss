@@ -1,35 +1,45 @@
-$static-path: '..' !default;
-
-// Add an image as banner
-{% if UFMT_EM_REDE_HOMEPAGE_BG_IMAGE != "" %}
-$homepage-bg-image: url('#{$static-path}/images/{{ UFMT_EM_REDE_HOMEPAGE_BG_IMAGE }}');
-{% endif %}
-
-$primary : {{ UFMT_EM_REDE_PRIMARY }};
-$primary-light : {{ UFMT_EM_REDE_PRIMARY_LIGHT }};
-$secondary: {{ UFMT_EM_REDE_SECONDARY }};
-
-$brand: {{ UFMT_EM_REDE_BRAND }};
-$success: {{ UFMT_EM_REDE_SUCCESS }};
-$info: {{ UFMT_EM_REDE_INFO }};
-$danger: {{ UFMT_EM_REDE_DANGER }};
-$warning: {{ UFMT_EM_REDE_WARNING }};
-$light: {{ UFMT_EM_REDE_LIGHT }};
-$dark: {{ UFMT_EM_REDE_DARK }};
-$drak: {{ UFMT_EM_REDE_DRAK }};
-$light-drak: {{ UFMT_EM_REDE_LIGHT_DRAK }};
-$accent-a: {{ UFMT_EM_REDE_ACCENT_A }};
-$accent-b: {{ UFMT_EM_REDE_ACCENT_B }};
+$primary: {{ INDIGO_PRIMARY_COLOR }};
+$primary-light: #F2F7F8;
 
 // Theme fonts
-$font-family-title: 'Inter', sans-serif;;
+$font-family-title: 'Inter', sans-serif;
 $serif: Crimson;
 $f-sans-serif: Crimson, 'Open Sans','Helvetica Neue', Helvetica, Arial, sans-serif;
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 // Initialize the Open edX Bootstrap theme
 @import 'edx-bootstrap/sass/open-edx/theme';
 
-$drak: {{ UFMT_EM_REDE_DRAK }};
-$light-drak: {{ UFMT_EM_REDE_LIGHT_DRAK }};
+
+// Introducing new variables
+
+$dark: #111827;
+$light-dark: #374151;
+$big-screen: 1200px;
 
 
+
+// Introducing dark-theme variables
+
+$primary-d: #AEC7F6;
+$primary-light-d: #292A2C;
+$gray-light: #E5E7EB;
+$gray-lighter: #c8c8c8;
+$light-dark-d: #374151;
+$text-color-d: #F8F8F8;
+$text-color-primary: #DDDFE2;
+$border-color-d: #777792;
+$light-overlay-d: #36383B;
+$danger-d: #FFA07A;
+$success-d: #54CF5E;
+$btn-color-d: #112F6B;
+$body-bg-d: #0D0D0E;
+
+$instructor-input-border-color: $gray-lighter;
+$light-theme-switch-bg-color: #1D386A;
+$dark-theme-switch-bg-color: #717D8A;
+
+$warning-400: #ffe340;
+$warning-700: #9c4607;
+$warning-accent-700: #fffcf5;
+
+$page-color-transition: transparent .2s ease, color .2s ease;

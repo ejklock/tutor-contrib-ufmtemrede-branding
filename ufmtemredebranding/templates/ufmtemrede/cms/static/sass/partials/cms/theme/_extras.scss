@@ -1,27 +1,5 @@
 @import "fonts";
 
-#main {
+#main{
     background-color: $secondary;
-}
-
-.wrapper-header.wrapper {
-    background: {{ UFMT_EM_REDE_HEADER_BACKGROUND }};
-    box-shadow: {{ UFMT_EM_REDE_HEADER_BOX_SHADOW }};
-}
-
-.wrapper-header .wrapper-l, .wrapper-header .wrapper-r {
-   background: unset;
-}
-
-.wrapper-header .branding a img {
-    max-height: 30px;
-    display: block;
-}
-
-.wrapper-header .info-course .course-link {
-    color: $secondary!important;
-}
-
-.wrapper-header .info-course .course-org, .wrapper-header .info-course .course-number {
-    color: $secondary!important;
 }

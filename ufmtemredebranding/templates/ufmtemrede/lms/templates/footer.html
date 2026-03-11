@@ -32,7 +32,7 @@
         <li>Powered by:</li>
         <li>
           <a href="https://docs.tutor.edly.io" rel="noopener" target="_blank">
-            <img src="${static.url('images/tutor-logo.png')}" alt="Runs on Tutor" width="57" />
+            <img src="${static.url('images/tutor-logo.png')}" alt="Runs on Tutor" width="80" />
           </a>
         </li>
         <li>
@@ -42,25 +42,22 @@
         </li>
       </ul>
     </div>
-    
+    {% if INDIGO_FOOTER_NAV_LINKS %}
     <nav class="nav-colophon" aria-label="${_('About')}">
       <ol>
-          
-        
-        {% for link in UFMT_EM_REDE_FOOTER_NAV_LINKS %}
-        <li>
-          <a href="{{ link['url'] }}">{{ link['title'] }}</a>
-        </li>
-        {% endfor %}
-          
+          {% for link in INDIGO_FOOTER_NAV_LINKS %}
+          <li>
+            <a href="{{ link['url'] }}">{{ link['title'] }}</a>
+          </li>
+          {% endfor %}
       </ol>
     </nav>
-    
+    {% endif %}
   </div>
   <span class="copyright-site">Copyrights ©${datetime.now().year}. All Rights Reserved.</span>
   % endif
     <div class="colophon">
-     
+
       % if context.get('include_language_selector', footer_language_selector_is_enabled()):
           <%include file="${static.get_template_path('widgets/footer-language-selector.html')}"/>
       % endif
@@ -98,8 +95,8 @@
         <ul class="logo-list">
           <li>Powered by:</li>
           <li>
-            <a href="https://docs.tutor.edly.io" rel="noopener" target="_blank">
-              <img src="${static.url('images/tutor-logo.png')}" alt="Runs on Tutor" width="57" />
+            <a href="https://edly.io/tutor/" rel="noopener" target="_blank">
+              <img src="${static.url('images/tutor-logo.png')}" alt="Runs on Tutor" width="80" />
             </a>
           </li>
           <li>
@@ -109,25 +106,22 @@
           </li>
         </ul>
       </div>
-      
+      {% if INDIGO_FOOTER_NAV_LINKS %}
       <nav class="nav-colophon" aria-label="${_('About')}">
         <ol>
-
-          {% for link in UFMT_EM_REDE_FOOTER_NAV_LINKS %}
-          <li>
-            <a href="{{ link['url'] }}">{{ link['title'] }}</a>
-          </li>
-          {% endfor %}
-            
-          
+            {% for link in INDIGO_FOOTER_NAV_LINKS %}
+            <li>
+              <a href="{{ link['url'] }}">{{ link['title'] }}</a>
+            </li>
+            {% endfor %}
         </ol>
       </nav>
-      
+      {% endif %}
     </div>
     <span class="copyright-site">Copyrights ©${datetime.now().year}. All Rights Reserved.</span>
     % endif
       <div class="colophon">
-       
+
         % if context.get('include_language_selector', footer_language_selector_is_enabled()):
             <%include file="${static.get_template_path('widgets/footer-language-selector.html')}"/>
         % endif
