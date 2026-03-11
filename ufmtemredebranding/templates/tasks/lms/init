@@ -19,10 +19,8 @@ def assign_theme(name, domain):
 domain_names = [
     '{{ LMS_HOST }}',
     '{{ CMS_HOST }}',
-    '{{ PREVIEW_LMS_HOST }}',
     '{{ LMS_HOST }}:8000',
     '{{ CMS_HOST }}:8001',
-    '{{ PREVIEW_LMS_HOST }}:8000',
 ]
 for domain_name in domain_names:
     assign_theme('ufmtemrede', domain_name)
