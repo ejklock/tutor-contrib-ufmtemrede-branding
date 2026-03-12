@@ -105,8 +105,8 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
 
 _MFE_BRAND_INSTALLS = """
 RUN npm install '@edx/brand@git+https://github.com/ejklock/brand-openedx-indigo.git#inovatec/ulmo'
-RUN npm install '@edx/frontend-component-header@npm:@edly-io/indigo-frontend-component-header@^5.0.0'
-RUN npm install '@edx/frontend-component-footer@npm:@edly-io/indigo-frontend-component-footer@^3.0.0'
+RUN npm install '@edx/frontend-component-header@npm:@edly-io/indigo-frontend-component-header@^2.0.0'
+RUN npm install '@edx/frontend-component-footer@npm:@edly-io/indigo-frontend-component-footer@^1.0.0'
 """
 
 _MFE_BRAND_ONLY = """
