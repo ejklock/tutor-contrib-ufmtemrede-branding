@@ -103,56 +103,26 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
 )
 
 
+_MFE_BRAND_INSTALLS = """
+RUN npm install '@edx/brand@git+https://github.com/ejklock/brand-openedx-indigo.git#inovatec/ulmo'
+RUN npm install '@edx/frontend-component-header@npm:@edly-io/indigo-frontend-component-header@^5.0.0'
+RUN npm install '@edx/frontend-component-footer@npm:@edly-io/indigo-frontend-component-footer@^3.0.0'
+"""
+
+_MFE_BRAND_ONLY = """
+RUN npm install '@edx/brand@git+https://github.com/ejklock/brand-openedx-indigo.git#inovatec/ulmo'
+"""
+
 hooks.Filters.ENV_PATCHES.add_items(
     [
-        (
-            "mfe-dockerfile-post-npm-install-learning",
-            """
-RUN npm install '@edx/brand@git+https://github.com/ejklock/brand-openedx-indigo.git#inovatec/ulmo'
-RUN npm install '@edx/frontend-component-header@npm:@edly-io/indigo-frontend-component-header@5.0.0'
-RUN npm install '@edx/frontend-component-footer@npm:@edly-io/indigo-frontend-component-footer@^3.0.0'
-""",
-        ),
-        (
-            "mfe-dockerfile-post-npm-install-authn",
-            """
-RUN npm install '@edx/brand@git+https://github.com/ejklock/brand-openedx-indigo.git#inovatec/ulmo'
-""",
-        ),
+        ("mfe-dockerfile-post-npm-install-learning", _MFE_BRAND_INSTALLS),
+        ("mfe-dockerfile-post-npm-install-authn", _MFE_BRAND_ONLY),
         # Tutor-Indigo v2.1 targets the styling updations in discussions and learner-dashboard MFE
         # brand-openedx is related to styling updates while others are for header and footer updates
-        (
-            "mfe-dockerfile-post-npm-install-discussions",
-            """
-RUN npm install '@edx/brand@git+https://github.com/ejklock/brand-openedx-indigo.git#inovatec/ulmo'
-RUN npm install '@edx/frontend-component-header@npm:@edly-io/indigo-frontend-component-header@5.0.0'
-RUN npm install '@edx/frontend-component-footer@npm:@edly-io/indigo-frontend-component-footer@^3.0.0'
-""",
-        ),
-        (
-            "mfe-dockerfile-post-npm-install-learner-dashboard",
-            """
-RUN npm install '@edx/brand@git+https://github.com/ejklock/brand-openedx-indigo.git#inovatec/ulmo'
-RUN npm install '@edx/frontend-component-header@npm:@edly-io/indigo-frontend-component-header@5.0.0'
-RUN npm install '@edx/frontend-component-footer@npm:@edly-io/indigo-frontend-component-footer@^3.0.0'
-""",
-        ),
-        (
-            "mfe-dockerfile-post-npm-install-profile",
-            """
-RUN npm install '@edx/brand@git+https://github.com/ejklock/brand-openedx-indigo.git#inovatec/ulmo'
-RUN npm install '@edx/frontend-component-header@npm:@edly-io/indigo-frontend-component-header@5.0.0'
-RUN npm install '@edx/frontend-component-footer@npm:@edly-io/indigo-frontend-component-footer@^3.0.0'
-""",
-        ),
-        (
-            "mfe-dockerfile-post-npm-install-account",
-            """
-RUN npm install '@edx/brand@git+https://github.com/ejklock/brand-openedx-indigo.git#inovatec/ulmo'
-RUN npm install '@edx/frontend-component-header@npm:@edly-io/indigo-frontend-component-header@5.0.0'
-RUN npm install '@edx/frontend-component-footer@npm:@edly-io/indigo-frontend-component-footer@^3.0.0'
-""",
-        ),
+        ("mfe-dockerfile-post-npm-install-discussions", _MFE_BRAND_INSTALLS),
+        ("mfe-dockerfile-post-npm-install-learner-dashboard", _MFE_BRAND_INSTALLS),
+        ("mfe-dockerfile-post-npm-install-profile", _MFE_BRAND_INSTALLS),
+        ("mfe-dockerfile-post-npm-install-account", _MFE_BRAND_INSTALLS),
     ]
 )
 ################# Initialization tasks
